@@ -8,16 +8,19 @@ public partial class MainWindow: Gtk.Window
 	Timer t1 = new Timer (timerCallback,null,1000,1000);
 
 	static Label sl2, sl6, sl7, sl8;
-
+	static Button bt1;
 	static void timerCallback(object state)
 	{
 		if (MainClass.pStatus == MainClass.ProcessStatus.Complete) {
 			sl2.Text = "Done";
+			bt1.Sensitive = true;
 		} else if (MainClass.pStatus == MainClass.ProcessStatus.Progress) {
+			bt1.Sensitive = false;
 			sl2.Text = "Processing ...";
-		} else
+		} else {
 			sl2.Text = "Idle";
-
+			bt1.Sensitive = true;
+		}
 		sl6.Text = MainClass.totalFileCount.ToString ();
 		sl7.Text = MainClass.skippedCount.ToString ();
 		sl8.Text = MainClass.errCount.ToString ();
@@ -30,6 +33,7 @@ public partial class MainWindow: Gtk.Window
 		sl6 = label6;
 		sl7 = label7;
 		sl8 = label8;
+		bt1 = button1;
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -86,7 +90,7 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnButton1Clicked (object sender, EventArgs e)
 	{
-		
+		button1.Sensitive = false;
 		System.Windows.Forms.FolderBrowserDialog fd = new System.Windows.Forms.FolderBrowserDialog ();
 		fd.ShowDialog ();
 
@@ -105,5 +109,7 @@ public partial class MainWindow: Gtk.Window
 
 		fd.Dispose ();
 
+
+		//fd.Container.Dispose ();
 	}
 }

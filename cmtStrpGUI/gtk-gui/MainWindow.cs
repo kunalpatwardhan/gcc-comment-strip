@@ -29,7 +29,6 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("C/C++Comments Strip");
-		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.table1 = new global::Gtk.Table (((uint)(3)), ((uint)(3)), false);
 		this.table1.Name = "table1";

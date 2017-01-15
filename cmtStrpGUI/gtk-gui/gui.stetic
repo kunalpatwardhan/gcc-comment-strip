@@ -12,7 +12,6 @@
   <widget class="Gtk.Window" id="MainWindow" design-size="298 82">
     <property name="MemberName" />
     <property name="Title" translatable="yes">C/C++Comments Strip</property>
-    <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.Table" id="table1">
