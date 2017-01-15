@@ -9,6 +9,14 @@ namespace cmtStrp
 		public static long totalFileCount = 0;
 		public static long errCount = 0;
 		public static long skippedCount = 0;
+		public enum ProcessStatus
+		{
+			Idle,
+			Progress,
+			Complete
+		};
+		public static ProcessStatus pStatus = ProcessStatus.Idle;
+
 		static Mutex mtx = new Mutex ();
 
 		/// &lt;span class="code-SummaryComment">&lt;summary>&lt;/span>
@@ -117,6 +125,7 @@ namespace cmtStrp
 
 		public static void DirSearch(string sDir)
 		{
+			pStatus = ProcessStatus.Progress;
 			try
 			{
 				foreach (string d in Directory.GetDirectories(sDir))
@@ -142,6 +151,8 @@ namespace cmtStrp
 			{
 				Console.WriteLine(excpt.Message);
 			}
+
+
 		}
 
 		public static void Main (string[] args)
@@ -149,7 +160,7 @@ namespace cmtStrp
 			
 			Console.WriteLine ("Let's Begin!");
 
-			DirSearch ("/home/kunal/INDC");
+			DirSearch ("Enetr Path Here!!");
 
 		}
 	}
