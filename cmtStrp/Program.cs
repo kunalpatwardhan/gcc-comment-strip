@@ -6,6 +6,7 @@ namespace cmtStrp
 {
 	class MainClass
 	{
+
 		/// &lt;span class="code-SummaryComment">&lt;summary>&lt;/span>
 		/// Executes a shell command synchronously.
 		/// &lt;span class="code-SummaryComment">&lt;/summary>&lt;/span>
@@ -16,6 +17,7 @@ namespace cmtStrp
 			string result="";
 			try
 			{
+
 				string commandStr = "\"" + command + "\""; 
 
 				// create the ProcessStartInfo using "cmd" as the program to be run,
@@ -28,7 +30,7 @@ namespace cmtStrp
 				// The following commands are needed to redirect the standard output.
 				// This means that it will be redirected to the Process.StandardOutput StreamReader.
 				procStartInfo.RedirectStandardOutput = true;
-				//procStartInfo.RedirectStandardError = true;
+				procStartInfo.RedirectStandardError = true;
 				procStartInfo.UseShellExecute = false;
 				// Do not create the black window.
 				procStartInfo.CreateNoWindow = true;
@@ -41,7 +43,9 @@ namespace cmtStrp
 				//proc.WaitForExit();
 				//proc.StandardError.ReadToEnd();
 				result = proc.StandardOutput.ReadToEnd();
-
+				if(result != "")
+					File.WriteAllText((string)command, result);
+				
 				// Display the command output.
 
 				//Console.WriteLine(result);
@@ -50,9 +54,7 @@ namespace cmtStrp
 			{
 				// Log the exception
 			}
-		//	string filePath = (string)command;
-			if(result != "")
-				File.WriteAllText((string)command, result);
+
 		//	return result;
 		}
 
@@ -69,7 +71,7 @@ namespace cmtStrp
 				//Make the thread as background thread.
 				objThread.IsBackground = true;
 				//Set the Priority of the thread.
-				objThread.Priority = ThreadPriority.AboveNormal;
+	//			objThread.Priority = ThreadPriority.AboveNormal;
 				//Start the thread.
 				objThread.Start(command);
 			}
@@ -106,7 +108,6 @@ namespace cmtStrp
 						if(File.Exists(f))
 						{
 							ExecuteCommandAsync(f);
-
 						}
 					}
 					DirSearch(d);
@@ -123,7 +124,7 @@ namespace cmtStrp
 			
 			Console.WriteLine ("Let's Begin!");
 
-			DirSearch ("/media/kunal/E6F0D65CF0D63313/Kunal/Mitsbishi/Original CCPU SourceCode2/");
+			DirSearch ("/home/kunal/INDC");
 
 		}
 	}

@@ -2,20 +2,15 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="cmtStrp/Program.cs">
     <Files>
-      <File FileName="cmtStrp/Program.cs" Line="94" Column="55" />
+      <File FileName="cmtStrp/Program.cs" Line="46" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>f</Value>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/kunal/cmtStrp/cmtStrp/Program.cs" line="46" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="cmtStrp/Program.cs" line="95" offsetX="-40" offsetY="1386" expression="f" liveUpdate="False" />
+    <Watch file="cmtStrp/Program.cs" line="95" offsetX="232" offsetY="1504" expression="f" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>
