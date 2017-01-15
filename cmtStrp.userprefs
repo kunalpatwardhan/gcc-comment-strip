@@ -1,14 +1,14 @@
-﻿<Properties StartupItem="cmtStrp/cmtStrp.csproj">
+﻿<Properties StartupItem="cmtStrpGUI/cmtStrpGUI.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="cmtStrp/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cmtStrpGUI/MainWindow.cs">
     <Files>
-      <File FileName="cmtStrp/Program.cs" Line="46" Column="1" />
+      <File FileName="cmtStrp/Program.cs" Line="45" Column="1" />
+      <File FileName="cmtStrpGUI/Program.cs" Line="4" Column="14" />
+      <File FileName="cmtStrpGUI/MainWindow.cs" Line="29" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/home/kunal/cmtStrp/cmtStrp/Program.cs" line="46" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="cmtStrp/Program.cs" line="95" offsetX="232" offsetY="1504" expression="f" liveUpdate="False" />

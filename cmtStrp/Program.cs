@@ -4,7 +4,7 @@ using System.Threading;
 using System.Linq;
 namespace cmtStrp
 {
-	class MainClass
+	public class MainClass
 	{
 
 		/// &lt;span class="code-SummaryComment">&lt;summary>&lt;/span>
@@ -89,7 +89,7 @@ namespace cmtStrp
 			}
 		}
 
-		static void DirSearch(string sDir)
+		public static void DirSearch(string sDir)
 		{
 			try
 			{

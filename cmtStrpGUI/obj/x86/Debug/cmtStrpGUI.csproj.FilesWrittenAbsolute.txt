@@ -1,0 +1,8 @@
+/home/kunal/cmtStrp/cmtStrpGUI/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/kunal/cmtStrp/cmtStrpGUI/obj/x86/Debug/cmtStrpGUI.gtk-gui.gui.stetic
+/home/kunal/cmtStrp/cmtStrpGUI/bin/Debug/cmtStrpGUI.exe.mdb
+/home/kunal/cmtStrp/cmtStrpGUI/bin/Debug/cmtStrpGUI.exe
+/home/kunal/cmtStrp/cmtStrpGUI/obj/x86/Debug/cmtStrpGUI.exe
+/home/kunal/cmtStrp/cmtStrpGUI/obj/x86/Debug/cmtStrpGUI.exe.mdb
+/home/kunal/cmtStrp/cmtStrpGUI/bin/Debug/cmtStrp.exe
+/home/kunal/cmtStrp/cmtStrpGUI/bin/Debug/cmtStrp.exe.mdb
