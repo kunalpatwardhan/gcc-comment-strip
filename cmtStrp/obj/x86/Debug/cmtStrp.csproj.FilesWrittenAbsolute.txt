@@ -1,0 +1,5 @@
+/home/kunal/cmtStrp/cmtStrp/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/kunal/cmtStrp/cmtStrp/bin/Debug/cmtStrp.exe.mdb
+/home/kunal/cmtStrp/cmtStrp/bin/Debug/cmtStrp.exe
+/home/kunal/cmtStrp/cmtStrp/obj/x86/Debug/cmtStrp.exe
+/home/kunal/cmtStrp/cmtStrp/obj/x86/Debug/cmtStrp.exe.mdb
