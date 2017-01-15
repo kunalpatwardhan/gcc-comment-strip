@@ -6,6 +6,10 @@ namespace cmtStrp
 {
 	public class MainClass
 	{
+		public static long totalFileCount = 0;
+		public static long errCount = 0;
+		public static long skippedCount = 0;
+		static Mutex mtx = new Mutex ();
 
 		/// &lt;span class="code-SummaryComment">&lt;summary>&lt;/span>
 		/// Executes a shell command synchronously.
@@ -15,6 +19,7 @@ namespace cmtStrp
 		public static void ExecuteCommandSync(object command)
 		{
 			string result="";
+
 			try
 			{
 
@@ -44,8 +49,29 @@ namespace cmtStrp
 				//proc.StandardError.ReadToEnd();
 				result = proc.StandardOutput.ReadToEnd();
 				if(result != "")
-					File.WriteAllText((string)command, result);
-				
+				{
+					if(File.ReadAllText((string)command)==result)
+					{
+						mtx.WaitOne();
+						skippedCount++;
+						mtx.ReleaseMutex();
+					}
+					else
+					{
+						File.WriteAllText((string)command, result);
+					}
+
+				}
+				else
+				{
+					
+					mtx.WaitOne();
+					errCount++;
+					mtx.ReleaseMutex();
+				}
+				mtx.WaitOne();
+				totalFileCount++;
+				mtx.ReleaseMutex();
 				// Display the command output.
 
 				//Console.WriteLine(result);
@@ -102,7 +128,6 @@ namespace cmtStrp
 						.ToList();
 					foreach (string f in filteredFiles)
 					{
-						
 
 						Console.WriteLine( d.Substring(d.Length-10,10));
 						if(File.Exists(f))

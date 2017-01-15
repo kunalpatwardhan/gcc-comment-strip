@@ -24,9 +24,17 @@ public partial class MainWindow: Gtk.Window
 		label2.Text="Processing ...";
 		while (Gtk.Application.EventsPending ())
 			Gtk.Application.RunIteration ();
+
+		MainClass.totalFileCount = 0;
+		MainClass.skippedCount = 0;
+		MainClass.errCount = 0;
+
 		MainClass.DirSearch (fd.SelectedPath);
 		label2.Text = "Done";
 
+		label6.Text = MainClass.totalFileCount.ToString ();
+		label7.Text = MainClass.skippedCount.ToString ();
+		label8.Text = MainClass.errCount.ToString ();
 		fd.Dispose ();
 
 	}
