@@ -11,17 +11,19 @@ namespace cmtStrp
 		/// &lt;span class="code-SummaryComment">&lt;/summary>&lt;/span>
 		/// &lt;span class="code-SummaryComment">&lt;param name="command">string command&lt;/param>&lt;/span>
 		/// &lt;span class="code-SummaryComment">&lt;returns>string, as output of the command.&lt;/returns>&lt;/span>
-		public static string ExecuteCommandSync(object command)
+		public static void ExecuteCommandSync(object command)
 		{
 			string result="";
 			try
 			{
+				string commandStr = "\"" + command + "\""; 
+
 				// create the ProcessStartInfo using "cmd" as the program to be run,
 				// and "/c " as the parameters.
 				// Incidentally, /c tells cmd that we want it to execute the command that follows,
 				// and then exit.
 				System.Diagnostics.ProcessStartInfo procStartInfo =
-					new System.Diagnostics.ProcessStartInfo("gcc", " -fpreprocessed -dD -E -P " + command);
+					new System.Diagnostics.ProcessStartInfo("gcc", " -fpreprocessed -dD -E -P " + commandStr);
 
 				// The following commands are needed to redirect the standard output.
 				// This means that it will be redirected to the Process.StandardOutput StreamReader.
@@ -49,8 +51,9 @@ namespace cmtStrp
 				// Log the exception
 			}
 		//	string filePath = (string)command;
-
-			return result;
+			if(result != "")
+				File.WriteAllText((string)command, result);
+		//	return result;
 		}
 
 		/// <span class="code-SummaryComment"><summary></span>
@@ -62,7 +65,7 @@ namespace cmtStrp
 			try
 			{
 				//Asynchronously start the Thread to process the Execute command request.
-				Thread objThread=null;// = new Thread(new ParameterizedThreadStart(ExecuteCommandSync));
+				Thread objThread = new Thread(new ParameterizedThreadStart(ExecuteCommandSync));
 				//Make the thread as background thread.
 				objThread.IsBackground = true;
 				//Set the Priority of the thread.
@@ -98,13 +101,12 @@ namespace cmtStrp
 					foreach (string f in filteredFiles)
 					{
 						
-						string commandStr = "\"" + f + "\""; 
+
 						Console.WriteLine( d.Substring(d.Length-10,10));
 						if(File.Exists(f))
 						{
-							string result = ExecuteCommandSync(commandStr);
-							if(result != "")
-								File.WriteAllText(f, result);
+							ExecuteCommandAsync(f);
+
 						}
 					}
 					DirSearch(d);
